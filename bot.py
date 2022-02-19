@@ -17,7 +17,7 @@ bot = TelegramClient(
                 )
 db = {}
 
-@bot.on(events.NewMessage(pattern="^[!?/]start$"))
+@bot.on(events.NewMessage(pattern="^[!?/]whisperstart$"))
 async def stsrt(event):
     await event.reply(
             "**Heya, I am a Whisper Bot!**",
@@ -32,15 +32,6 @@ async def die(event):
     if len(event.text) != 0:
         return
     me = (await bot.get_me()).username
-    dn = event.builder.article(
-            title="It's a Whisper Bot!",
-            description="It's a Whisper Bot!\n(c) Royzu",
-            text=f"**It's a whisper bot**\n`@{me} wspr UserID|Message`\n**(c) Royzu**",
-            buttons=[
-                [Button.switch_inline(" Go Inline ", query="wspr ")]
-                ]
-            )
-    await event.answer([dn])
     
 @bot.on(events.InlineQuery(pattern="wspr"))
 async def inline(event):
@@ -73,12 +64,12 @@ async def inline(event):
     text = f"""
 A Whisper Has Been Sent
 To [{ui.user.first_name}](tg://user?id={ui.user.id})!
-Click The Below Button To See The Message!
+Click The Below Button To See The Message!\n
 **Note:** __Only {ui.user.first_name} can open this!__
     """
     dn = event.builder.article(
-            title="Its a secret message! Sssh",
-            description="It's a secret message! Sssh!",
+            title="Its a secret message!",
+            description="It's a secret message!",
             text=text,
             buttons=[
                 [Button.inline(" Show Message! ", data="wspr")]
@@ -86,7 +77,7 @@ Click The Below Button To See The Message!
             )
     await event.answer(
             [dn],
-            switch_pm="It's a secret message! Sssh",
+            switch_pm="It's a secret message!",
             switch_pm_param="start"
             )
 

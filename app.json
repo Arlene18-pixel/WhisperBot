@@ -1,0 +1,23 @@
+{
+	"name": "WhisperBot",
+	"description": "A TelegramBot to send messages secretly!",
+	"logo": "https://telegra.ph/file/5854f7aacd6dd0a974717.jpg",
+	"keywords": [
+		"telegram",
+		"bot",
+		"python",
+		"telethon"
+	],
+	"repository": "https://github.com/Xayzo/WhisperBot",
+	"env": {
+		"TOKEN": {
+			"description": "Your Telegram Bot Token ( @BotFather )",
+			"value": ""
+		}
+	},
+	"buildpacks": [
+		{
+			"url": "heroku/python"
+		}
+	]
+}

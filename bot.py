@@ -34,7 +34,7 @@ async def die(event):
     me = (await bot.get_me()).username
     dn = event.builder.article(
             title="It's a Whisper Bot!",
-            description="It's a whisper Bot!\n(c) Reeshuxd",
+            description="It's a Whisper Bot!\n(c) Royzu",
             text=f"**It's a whisper bot**\n`@{me} wspr UserID|Message`\n**(c) Royzu**",
             buttons=[
                 [Button.switch_inline(" Go Inline ", query="wspr ")]
